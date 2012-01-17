@@ -1,0 +1,7 @@
+from django.conf import settings
+
+MINIJS_OUTPUT_DIR = getattr(settings, "MINIJS_OUTPUT_DIR", "minijs")
+MINIJS_BYPASS = getattr(settings, "MINIJS_BYPASS", False)
+MINIJS_ALWAYS_MINIFY = getattr(settings, "MINIJS_ALWAYS_MINIFY", False)
+MINIJS_ALWAYS_COMPILE_COFFEESCRIPT_DURING_BYPASS = getattr(settings, "MINIJS_ALWAYS_COMPILE_COFFEESCRIPT_DURING_BYPASS", False)
+COFFEESCRIPT_EXECUTABLE = getattr(settings, "COFFEESCRIPT_EXECUTABLE", "coffee")
