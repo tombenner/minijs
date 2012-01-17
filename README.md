@@ -1,6 +1,6 @@
 Minijs
-==================================================
-A JavaScript and CoffeeScript minifier for Django 
+=================================================
+A JavaScript and CoffeeScript minifier for Django
 
 Description
 -----------
@@ -32,17 +32,44 @@ Please make sure that the CoffeeScript executable is installed.  The command `"c
 
 #### Options
 
-`MINIJS_OUTPUT_DIR (string)`
+`MINIJS_MODE`
+
+(string)
+
+If this is set to `"production"`, the template tag will simply print out a `<script>` tag that has the path of the minified file, bypassing all of the functionality that checks to see if the file exists or needs to be compiled.  This should only be used in an environment where the minification has already been performed and the input files won't be modified.  Default is `"development"`.
+
+`MINIJS_OUTPUT_DIR`
+
+(string)
+
 This sets the name of the output directory within STATIC_ROOT (or MEDIA_ROOT if STATIC_ROOT isn't set).  Default is `"minijs"`.
 
-`MINIJS_BYPASS (boolean)`
+`MINIJS_BYPASS`
+
+(boolean)
+
 If this is set to `True`, the template tag will output `<script>` tags for each of the input files, instead of minifying and concatenating them (CoffeeScript files are still compiled, though).  Default is `False`.
 
-`MINIJS_ALWAYS_MINIFY (boolean)`
+`MINIJS_ALWAYS_MINIFY`
+
+(boolean)
+
 If this is set to `True`, minijs will minify and concatenate on each page load, instead of checking to see if that process is necessary (i.e. if the input files have been modified since the last minification).  Default is `False`.
 
-`MINIJS_ALWAYS_COMPILE_COFFEESCRIPT_DURING_BYPASS (boolean)`
+`MINIJS_ALWAYS_COMPILE_COFFEESCRIPT_DURING_BYPASS`
+
+(boolean)
+
 If this and `MINIJS_BYPASS` are both set to `True`, minijs will compile CoffeeScript files on every page load, instead of checking to see if compilation is necessary (i.e. if the input files have been modified since the last compilation).  Default is `False`.
 
-`COFFEESCRIPT_EXECUTABLE (string)`
+`MINIJS_COMPILE_COFFEESCRIPTS_TOGETHER`
+
+(boolean)
+
+By default, the template tag will concatenate the source of all of the CoffeeScript files and compile that, so that a class from one can reference a class from another.  To compile each CoffeeScript individually, set this to `False`.  Default is `True`.
+
+`COFFEESCRIPT_EXECUTABLE`
+
+(string)
+
 Sets the path to the CoffeeScript executable.  Default is `"coffee"`.
