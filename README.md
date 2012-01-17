@@ -24,7 +24,7 @@ Here's an example:
 
 This will output a single `<script>` tag that points to a file that contains the minified and concatenated source of all of the input files:
 
-    <script type="text/javascript" src="/static/minijs/base_scripts.js"></script>
+    <script type="text/javascript" src="/static/minijs/stable/base_scripts.js"></script>
 
 The first argument ("base_scripts") is the name of the output file and should be unique for each call.  If you'd like to include JS files that have already been minified and shouldn't be minified again, add a "-" to the end of the path.  The paths are relative to STATIC_ROOT (or MEDIA_ROOT if STATIC_ROOT isn't set).
 
