@@ -128,9 +128,10 @@ class Minijs(Node):
           minification_necessary = True
 
         if minification_necessary:
-          for filename in os.listdir(output_directory):
-              if filename.startswith(base_filename):
-                  os.remove(os.path.join(output_directory, filename))
+          if os.path.exists(output_directory):
+            for filename in os.listdir(output_directory):
+                if filename.startswith(base_filename):
+                    os.remove(os.path.join(output_directory, filename))
           if os.path.exists(output_path):
             os.remove(output_path)
           concatenated_source = ''
